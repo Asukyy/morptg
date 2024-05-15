@@ -1,0 +1,19 @@
+
+.MuiDrawer-paper {
+    width: 240px;
+}
+
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper
+{
+    background-color: #181A1B !important;
+    color: white !important;
+}
+
+.css-i4bv87-MuiSvgIcon-root
+{
+    color: white !important;
+}
+
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper .MuiDivider-root {
+    background-color: white !important;
+}
