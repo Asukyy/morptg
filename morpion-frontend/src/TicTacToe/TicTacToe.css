@@ -1,18 +1,18 @@
-.align{
+.align {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }
 
-.tic-tac-toe{
+  .tic-tac-toe {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 100px;
-}
+  }
 
-.turn-container{
+  .turn-container {
     width: 170px;
     height: 80px;
     margin: auto;
@@ -21,25 +21,23 @@
     grid-template-rows: 1fr 1fr;
     position: relative;
     transition: background-color 0.2s ease-in-out;
-}
+  }
 
-
-.turn-container h3{
+  .turn-container h3 {
     margin: 0;
     grid-column-start: 1;
     grid-column-end: 3;
     text-align: center;
-}
+  }
 
-
-.turn-container .turn-box{
+  .turn-container .turn-box {
     border: 3px solid #000;
     font-size: 1.6rem;
     font-weight: 700;
     transition: background-color 0.2s ease-in-out; /* Transition pour le changement de tour */
-}
+  }
 
-@keyframes roll {
+  @keyframes roll {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
@@ -48,17 +46,15 @@
     animation: roll 2s linear infinite;
   }
 
-
-.turn-container .turn-box:nth-child(0n+2){
+  .turn-container .turn-box:nth-child(0n+2) {
     border-right: 0;
-}
+  }
 
+  .turn-container .turn-box.active {
+    background-color: #08D9D6;
+  }
 
-.turn-container .turn-box.active {
-    background-color: #08D9D6; /* Couleur de fond pour le tour actif */
-}
-
-.bg{
+  .bg {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -67,9 +63,9 @@
     background-color: #FF2E63;
     z-index: -1;
     transition: left 0.2s ease-in-out; /* Transition pour le changement de tour */
-}
+  }
 
-.main-grid{
+  .main-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -77,30 +73,29 @@
     width: 250px;
     margin: 30px auto;
     border: 2px solid #000;
-}
+  }
 
-.box{
+  .box {
     cursor: pointer;
     font-size: 2rem;
     font-weight: 700;
     border: 2px solid #000;
     transition: background-color 0.2s ease-in-out; /* Transition pour le surlignage des cases */
-}
+  }
 
-.box:hover{
+  .box:hover {
     background-color: #FF2E63;
-}
+  }
 
-.box.cross.winner {
+  .box.cross.winner {
     background-color: #FF2E63; /* Couleur de fond pour les cases gagnantes */
-}
+  }
 
-.box.winner{
+  .box.winner {
     background-color: #08D9D6;
+  }
 
-}
-
-#play-again{
+  #play-again {
     background-color: #FF2E63;
     padding: 10px 25px;
     border: none;
@@ -109,16 +104,15 @@
     cursor: pointer;
     display: none;
     transition: all 0.2s ease-in-out;
-}
+  }
 
-#play-again:hover{
+  #play-again:hover {
     padding: 10px 40px;
     background-color: #08D9D6;
     color: #000;
     transition: all 0.2s ease-in-out;
-}
+  }
 
-.activeCross{
+  .activeCross {
     background-color: #FF2E63; /* Couleur de fond pour le tour actif */
-}
-
+  }
