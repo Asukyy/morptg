@@ -4,6 +4,8 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     color: #fff;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 body {

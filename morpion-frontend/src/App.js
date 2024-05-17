@@ -8,9 +8,11 @@ import Pvp from './Pvp/Pvp';
 import PvB from './PvB/PvB';
 import BvB from './BvB/BvB';
 import Login from './Login/Login';
+import Header from './Header/Header';
 import Inscription from './Inscription/Inscription';
 import { CssBaseline, Container, Box, styled } from '@mui/material';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 
 const AppContainer = styled(Box)({
   backgroundColor: '#252A34', // Définir le fond de page global
@@ -19,9 +21,13 @@ const AppContainer = styled(Box)({
 
 function App() {
     return (
+        <AuthProvider>
         <Router>
-            <CssBaseline /> {/* Réinitialisation des styles par défaut du navigateur */}
+            <CssBaseline />
+            <Header />
+
             <AppContainer sx={{ display: 'flex' }}>
+
                 <Sidebar />
                 <Box
                     component="main"
@@ -30,7 +36,6 @@ function App() {
                     <Container>
                         <Routes>
                             <Route path="/" element={<Home />} />
-                            <Route path="/grid" element={<Grid />} />
                             <Route path="/store" element={<Store />} />
                             <Route path="/friends" element={<Friends />} />
                             <Route path="/matchmaking" element={<Pvp />} />
@@ -39,10 +44,12 @@ function App() {
                             <Route path="/login" element={<Login />} />
                             <Route path="/inscription" element={<Inscription />} />
                         </Routes>
+
                     </Container>
                 </Box>
             </AppContainer>
         </Router>
+        </AuthProvider>
     );
 }
 
