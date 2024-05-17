@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 const corsOptions = {
     origin: 'http://localhost:3000',
@@ -18,12 +18,10 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(express.json());
 
-// Importer les routes
-const difficulteRouter = require('./routes/Difficulte/Difficulte');
-const inscriptionRouter = require('./routes/Login/Login');
-const gamesRouter = require('./routes/Games/Games');
+const difficulteRouter = require('./../routes/Difficulte/Difficulte');
+const inscriptionRouter = require('./../routes/Login/Login');
+const gamesRouter = require('./../routes/Games/Games');
 
-// Utiliser les routes
 app.use(difficulteRouter);
 app.use(inscriptionRouter);
 app.use(gamesRouter);

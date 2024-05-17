@@ -21,7 +21,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/login', { email, mot_de_passe: motDePasse });
+      const response = await axios.post('http://localhost:5001/login', { email, mot_de_passe: motDePasse });
       if (response.data.success) {
         localStorage.setItem('token', response.data.token);
         setAuthState({ token: response.data.token, authenticated: true });
@@ -59,7 +59,12 @@ const Login = () => {
           margin="normal"
           variant="outlined"
           required
-          sx={{ input: { color: '#fff' }, '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: themeColors.primary } } }}
+          sx={{ 
+            input: { color: '#fff' }, 
+            '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: themeColors.primary } },
+            '& .MuiInputLabel-root': { color: '#fff' },
+          }}
+          InputLabelProps={{ style: { color: '#fff' } }}
         />
         <TextField
           fullWidth
@@ -70,13 +75,18 @@ const Login = () => {
           margin="normal"
           variant="outlined"
           required
-          sx={{ input: { color: '#fff' }, '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: themeColors.primary } } }}
+          sx={{ 
+            input: { color: '#fff' }, 
+            '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: themeColors.primary } },
+            '& .MuiInputLabel-root': { color: '#fff' },
+          }}
+          InputLabelProps={{ style: { color: '#fff' } }}
         />
         {errorMessage && (
-        <Typography variant="body2" sx={{ color: 'red' }}>
-          {errorMessage}
-        </Typography>
-      )}
+          <Typography variant="body2" sx={{ color: 'red' }}>
+            {errorMessage}
+          </Typography>
+        )}
         <Button
           type="submit"
           variant="contained"

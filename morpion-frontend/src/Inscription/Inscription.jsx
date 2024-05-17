@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Inscription.css';
 import { useNavigate, Link } from "react-router-dom";
 import { TextField, Button, Typography, Box, IconButton } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
@@ -8,6 +9,7 @@ const themeColors = {
   primary: "#08D9D6",
   secondary: "#FF2E63",
   background: "#252A34",
+  white: "#ffffff",
 };
 
 const Inscription = () => {
@@ -17,7 +19,7 @@ const Inscription = () => {
   const [confirmMotDePasse, setConfirmMotDePasse] = useState("");
   const [erreurMotDePasse, setErreurMotDePasse] = useState("");
   const [erreurEmail, setErreurEmail] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // Nouvelle variable d'état pour afficher/masquer le mot de passe
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -50,8 +52,7 @@ const Inscription = () => {
     }
 
     try {
-
-      const response = await axios.post('http://localhost:5000/inscription', { nom, email, mot_de_passe: motDePasse });
+      const response = await axios.post('http://localhost:5001/inscription', { nom, email, mot_de_passe: motDePasse });
       if (response.data.success) {
         localStorage.setItem('token', response.data.token);
         navigate('/login');
@@ -87,12 +88,18 @@ const Inscription = () => {
           margin="normal"
           variant="outlined"
           required
-          sx={{ input: { color: '#fff' }, '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: themeColors.primary } } }}
+          sx={{ 
+            input: { color: '#fff' }, 
+            '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: themeColors.primary } },
+            '& .MuiInputLabel-root': { color: '#fff' },
+          }}
+          InputLabelProps={{ style: { color: '#fff' } }}
         />
         <TextField
           fullWidth
           label="Email"
           type="email"
+          color="primary"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           margin="normal"
@@ -100,7 +107,12 @@ const Inscription = () => {
           required
           error={!!erreurEmail}
           helperText={erreurEmail}
-          sx={{ input: { color: '#fff' }, '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: themeColors.primary } } }}
+          sx={{ 
+            input: { color: '#fff' }, 
+            '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: themeColors.primary } },
+            '& .MuiInputLabel-root': { color: '#fff' },
+          }}
+          InputLabelProps={{ style: { color: '#fff' } }}
         />
         <TextField
           fullWidth
@@ -113,7 +125,12 @@ const Inscription = () => {
           required
           error={!!erreurMotDePasse}
           helperText={erreurMotDePasse}
-          sx={{ input: { color: '#fff' }, '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: themeColors.primary } } }}
+          sx={{ 
+            input: { color: '#fff' }, 
+            '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: themeColors.primary } },
+            '& .MuiInputLabel-root': { color: '#fff' },
+          }}
+          InputLabelProps={{ style: { color: '#fff' } }}
           InputProps={{
             endAdornment: (
               <IconButton
@@ -135,7 +152,12 @@ const Inscription = () => {
           margin="normal"
           variant="outlined"
           required
-          sx={{ input: { color: '#fff' }, '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: themeColors.primary } } }}
+          sx={{ 
+            input: { color: '#fff' }, 
+            '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: themeColors.primary } },
+            '& .MuiInputLabel-root': { color: '#fff' },
+          }}
+          InputLabelProps={{ style: { color: '#fff' } }}
         />
         <Button
           type="submit"

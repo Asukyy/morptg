@@ -26,7 +26,7 @@ const themeColors = {
 
     const fetchDifficulties = async () => {
       try {
-        const response = await fetch('http://localhost:5000/difficulte');
+        const response = await fetch('http://localhost:5001/difficulte');
         const data = await response.json();
         setDifficulties(data);
       } catch (error) {
